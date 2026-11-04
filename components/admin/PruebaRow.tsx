@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Pencil, RotateCcw, Trash2 } from "lucide-react";
+import { EyeOff, Pencil, RotateCcw } from "lucide-react";
 import EstadoSelector from "@/components/admin/EstadoSelector";
 import type { EstadoPrueba, Prueba } from "@/types/admin";
 
@@ -39,7 +39,7 @@ export default function PruebaRow({ prueba, busy, onStatus, onEdit, onHide, onRe
       <div className="row-actions">
         {active ? <>
           <button type="button" className="icon-button" aria-label={`Editar ${prueba.nombre}`} onClick={onEdit}><Pencil size={17} aria-hidden="true" /></button>
-          <button type="button" className="icon-button danger-action" aria-label={`Eliminar ${prueba.nombre}`} onClick={onHide}><Trash2 size={17} aria-hidden="true" /></button>
+          <button type="button" className="button button-quiet" aria-label={`Ocultar ${prueba.nombre} a los pacientes`} onClick={onHide}><EyeOff size={17} aria-hidden="true" />Ocultar</button>
         </> : <button type="button" className="button button-quiet restore-button" onClick={onRestore}><RotateCcw size={16} aria-hidden="true" />Restaurar</button>}
       </div>
     </article>

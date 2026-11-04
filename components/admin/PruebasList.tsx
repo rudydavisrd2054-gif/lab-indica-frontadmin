@@ -60,7 +60,7 @@ export default function PruebasList({ pruebas, loading, error, onRetry, onStatus
       </section>
       {!filtered.length && <p className="empty-state">No hay pruebas que coincidan con estos filtros.</p>}
       {(editing !== undefined || createOpen) && <PruebaDialog key={editing?.id ?? "new"} open prueba={editing ?? null} onClose={() => { setEditing(undefined); setCreateOpen(false); }} onSave={onSave} />}
-      <ConfirmDialog open={Boolean(hiding)} title="¿Eliminar esta prueba?" message={`“${hiding?.nombre ?? ""}” dejará de aparecer al público. No se borra: quedará en “Ocultas” y podrás restaurarla.`} onCancel={() => setHiding(null)} onConfirm={async () => {
+      <ConfirmDialog open={Boolean(hiding)} title="¿Ocultar esta prueba a los pacientes?" message={`“${hiding?.nombre ?? ""}” dejará de aparecer al público. Se conservará en “Ocultas” con su historial y podrás restaurarla.`} onCancel={() => setHiding(null)} onConfirm={async () => {
         if (hiding) { await runRowAction(hiding.id, async () => { await onVisibility(hiding, 0); setHiding(null); }); }
       }} />
     </>

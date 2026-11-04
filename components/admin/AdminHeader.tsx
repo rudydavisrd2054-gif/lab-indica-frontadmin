@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import callaoLogo from "@/public/logocallao.png";
 import { LogOut } from "lucide-react";
 import type { Usuario } from "@/types/admin";
 
@@ -9,8 +10,8 @@ export default function AdminHeader({ usuario, onLogout }: { usuario: Usuario; o
     <header className="admin-header">
       <div className="header-inner">
         <div className="brand-lockup">
-          <Image src="/logocallao.png" alt="Gobierno Regional del Callao" width={110} height={60} priority />
-          <div><strong>Centro de Salud Acapulco</strong><span>Administración del laboratorio</span></div>
+          <Image src={callaoLogo} alt="Gobierno Regional del Callao" sizes="105px" />
+          <div><strong>Laboratorio Clínico Acapulco</strong><span>Administración del laboratorio</span></div>
         </div>
         <div className="header-user">
           <span className="user-name">{usuario.nombre}</span>

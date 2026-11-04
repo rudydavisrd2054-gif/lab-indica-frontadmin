@@ -16,8 +16,8 @@ const mono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Administración | Laboratorio Clínico",
-  description: "Panel de administración del laboratorio clínico.",
+  title: "Administración | Laboratorio Clínico Acapulco",
+  description: "Panel de administración del Laboratorio Clínico Acapulco.",
   robots: { index: false, follow: false },
 };
 
