@@ -10,12 +10,12 @@ export default function AdminHeader({ usuario, onLogout }: { usuario: Usuario; o
     <header className="admin-header">
       <div className="header-inner">
         <div className="brand-lockup">
-          <Image src={callaoLogo} alt="Gobierno Regional del Callao" sizes="105px" />
-          <div><strong>Laboratorio Clínico Acapulco</strong><span>Administración del laboratorio</span></div>
+          <Image src={callaoLogo} alt="Gobierno Regional del Callao" sizes="83px" priority />
+          <div><strong>Centro de Salud Acapulco</strong><span>Laboratorio clínico · Administración</span></div>
         </div>
         <div className="header-user">
           <span className="user-name">{usuario.nombre}</span>
-          <button type="button" className="button button-quiet" onClick={onLogout}>
+          <button type="button" className="button button-secondary logout-button" onClick={onLogout}>
             <LogOut size={17} aria-hidden="true" /><span>Cerrar sesión</span>
           </button>
         </div>
