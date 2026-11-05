@@ -62,6 +62,12 @@ export function useAdminPruebas(token: string, onToast: (toast: Omit<ToastMessag
     try {
       const updated = await adminApi.savePrueba(token, {
         nombre: prueba.nombre,
+        descripcion: prueba.descripcion ?? "",
+        cuando_hacerlo: prueba.cuando_hacerlo ?? "",
+        interpretacion: prueba.interpretacion ?? "",
+        tipo_muestra: prueba.tipo_muestra ?? "",
+        preparacion: prueba.preparacion ?? "",
+
         indicaciones: prueba.indicaciones ?? "",
         tiempo_ayunas: prueba.tiempo_ayunas ?? "",
         area: prueba.area,

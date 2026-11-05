@@ -289,3 +289,21 @@ h1, h2, p { margin-top: 0; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
 }
+
+/* Structured test editor: fixed heading and actions, scrollable fields. */
+.edit-dialog { width: min(100% - 24px, 760px); padding: 0; overflow: hidden; }
+.edit-dialog .dialog-form { display: flex; flex-direction: column; gap: 0; max-height: min(calc(100dvh - 32px), 850px); }
+.edit-dialog .dialog-heading { flex-shrink: 0; padding: 24px 70px 18px 24px; border-bottom: 1px solid var(--line); }
+.edit-dialog .dialog-close { top: 20px; right: 20px; }
+.prueba-form-body { min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding: 22px 24px; display: grid; gap: 24px; }
+.prueba-section { min-width: 0; margin: 0; padding: 18px; display: grid; gap: 14px; border: 1px solid var(--line); border-radius: 14px; }
+.prueba-section legend { padding: 0 7px; color: var(--brand); font-size: 13px; font-weight: 700; }
+.section-help { margin: 0; color: var(--muted); font-size: 12px; }
+.edit-dialog .dialog-actions { position: static; flex-shrink: 0; margin: 0; padding: 16px 24px; }
+.edit-dialog .form-error { margin: 8px 24px; }
+@media (max-width: 520px) {
+  .prueba-form-body { padding: 16px; gap: 18px; }
+  .prueba-section { padding: 12px; }
+  .edit-dialog .form-two-col { grid-template-columns: 1fr; }
+  .edit-dialog .field-caption { flex-wrap: wrap; }
+}

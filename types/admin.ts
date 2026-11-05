@@ -15,6 +15,10 @@ export interface Prueba {
   id: number | string;
   nombre: string;
   descripcion: string | null;
+  cuando_hacerlo?: string | null;
+  interpretacion?: string | null;
+  tipo_muestra?: string | null;
+  preparacion?: string | null;
   indicaciones: string | null;
   tiempo_ayunas: string | null;
   area: Area;
@@ -26,6 +30,12 @@ export interface Prueba {
 }
 
 export interface PruebaInput {
+  descripcion: string;
+  cuando_hacerlo: string;
+  interpretacion: string;
+  tipo_muestra: string;
+  preparacion: string;
+
   nombre: string;
   indicaciones: string;
   tiempo_ayunas: string;

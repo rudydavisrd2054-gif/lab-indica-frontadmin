@@ -26,7 +26,7 @@ export default function PruebaRow({ prueba, busy, onStatus, onEdit, onHide, onRe
   return (
     <article className="test-row">
       <div className="test-main">
-        <div className="test-title-line"><strong>{prueba.nombre}</strong>{!prueba.indicaciones && <span className="missing-chip">Faltan indicaciones</span>}</div>
+        <div className="test-title-line"><strong>{prueba.nombre}</strong>{!prueba.indicaciones && <span className="missing-chip">Faltan condiciones preanalíticas</span>}</div>
         <div className="test-details"><span className="fasting">{prueba.tiempo_ayunas?.trim() || "Ayuno no indicado"}</span><span>{updatedTime(prueba.actualizado_en)}</span></div>
       </div>
       <div className="test-controls">
