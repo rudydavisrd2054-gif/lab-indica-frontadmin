@@ -11,7 +11,7 @@ const empty: Fields = { nombre: "", area: "bioquimica", tiempo_ayunas: "", indic
 export default function PruebaDialog({ open, prueba, onClose, onSave }: Props) {
   const dialog = useRef<HTMLDialogElement>(null);
   const [fields, setFields] = useState<Fields>(() => prueba ? {
-    nombre: prueba.nombre, area: prueba.area,
+    nombre: prueba.nombre.toLocaleUpperCase("es"), area: prueba.area,
     descripcion: prueba.descripcion ?? "",
     cuando_hacerlo: prueba.cuando_hacerlo ?? "",
     interpretacion: prueba.interpretacion ?? "",
@@ -27,7 +27,7 @@ export default function PruebaDialog({ open, prueba, onClose, onSave }: Props) {
     if (!open && element?.open) element.close();
   }, [open]);
   function change<K extends keyof Fields>(key: K, value: Fields[K]) {
-    setFields((current) => ({ ...current, [key]: value }));
+    setFields((current) => ({ ...current, [key]: key === "nombre" ? value.toLocaleUpperCase("es") : value }));
   }
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();

@@ -50,7 +50,7 @@ export default function PruebasList({ pruebas, loading, error, onRetry, onStatus
       <PruebasToolbar search={query} onSearch={setQuery} area={area} onArea={setArea} status={status} onStatus={setStatus} visibility={visibility} onVisibility={setVisibility} onCreate={() => setCreateOpen(true)} />
       <section className="area-list" aria-label="Pruebas agrupadas por área">
         {areas.filter((item) => area === "todas" || area === item.id).map(({ id, name, icon: Icon, key }) => {
-          const entries = filtered.filter((item) => item.area === id).sort((a, b) => a.orden - b.orden || a.nombre.localeCompare(b.nombre, "es"));
+          const entries = filtered.filter((item) => item.area === id).sort((a, b) => a.nombre.localeCompare(b.nombre, "es", { sensitivity: "base", numeric: true }));
           if (!entries.length) return null;
           return <article key={id} data-area={key} className="area-card">
             <header className="area-heading"><span className="area-icon"><Icon size={21} aria-hidden="true" /></span><h2>{name}</h2><span className="area-count">{String(entries.length).padStart(2, "0")} pruebas</span></header>
