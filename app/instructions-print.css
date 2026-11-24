@@ -1,0 +1,151 @@
+.instructions-toolbar .filter-label { display: grid; gap: 5px; }
+.instructions-toolbar .instructions-paper { flex: 0 0 max-content; }
+.instructions-paper select { min-width: 185px; }
+.instructions-search { flex: 1 1 220px; }
+.instructions-search input {
+  min-width: 0; min-height: 44px; padding: 9px 12px;
+  border: 1px solid var(--line); border-radius: 10px; background: var(--surface);
+}
+.instructions-selection {
+  display: flex; align-items: center; flex-wrap: wrap; gap: 10px;
+  margin-bottom: 16px;
+}
+.instructions-selection span { margin-inline-end: auto; }
+.instructions-area-heading { justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+.instructions-area-heading h3 { font-size: 20px; font-weight: 700; }
+.instructions-exam-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 230px), 1fr));
+  gap: 8px;
+  padding: 0 clamp(13px, 2vw, 19px) 16px;
+}
+.instructions-exam-options label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  overflow-wrap: anywhere;
+  cursor: pointer;
+}
+.instructions-exam-options label:has(input:checked) {
+  border-color: var(--brand);
+  background: var(--bg);
+}
+.instructions-exam-options input { flex: none; accent-color: var(--brand); }
+
+.admin-dialog.instructions-dialog { width: min(100% - 24px, 940px); padding: 0; overflow: hidden; }
+.instructions-preview-layout { display: flex; flex-direction: column; height: min(calc(100dvh - 32px), 850px); }
+.instructions-dialog .dialog-heading { flex: none; padding: 16px 60px 14px 20px; }
+.instructions-dialog .dialog-close { top: 12px; right: 12px; }
+.instructions-dialog select { margin-inline-start: 8px; width: auto; min-height: 36px; }
+.instructions-preview-body { flex: 1; min-height: 0; scrollbar-gutter: stable; overflow: auto; background: #edf0f2; padding: clamp(8px, 3vw, 24px); }
+.instructions-dialog .dialog-actions { position: static; flex: none; flex-wrap: wrap; margin: 0; padding: 12px 20px; }
+.instructions-dialog .form-error { width: 100%; }
+.instructions-print-root { display: none; }
+.instructions-measurement {
+  position: fixed; top: 0; left: 0; visibility: hidden; pointer-events: none;
+}
+.instructions-pages { display: grid; gap: 16px; justify-items: center; }
+
+
+.instructions-sheet {
+  --sheet-width: 210mm;
+  --sheet-height: 297mm;
+  --sheet-margin: 15mm;
+  --sheet-type: 11pt;
+  --callao-width: 34mm;
+  --qr-width: 20mm;
+  --footer-type: 9pt;
+  --footer-inset: 3mm;
+  --credit-width: 23mm;
+  display: flex; flex-direction: column;
+  width: var(--sheet-width); min-height: var(--sheet-height);
+  margin: 0; padding: var(--sheet-margin);
+  background: white; color: #161616;
+  font: var(--sheet-type)/1.45 Arial, sans-serif;
+  overflow-wrap: anywhere;
+}
+.instructions-sheet[data-paper="A5"] {
+  --sheet-width: 148mm;
+  --sheet-height: 210mm;
+  --sheet-margin: 10mm;
+  --sheet-type: 10.5pt;
+  --callao-width: 26mm;
+  --qr-width: 17mm;
+  --footer-type: 8pt;
+  --footer-inset: 2mm;
+  --credit-width: 19mm;
+}
+.instructions-preview-body .instructions-sheet { box-shadow: 0 2px 10px #0002; }
+.instructions-sheet p, .instructions-sheet figure { margin: 0; }
+.instructions-letterhead {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px;
+  padding-bottom: 10px; border-bottom: 2px solid #444;
+}
+.instructions-letterhead img { width: var(--callao-width); }
+.instructions-letterhead strong { font-size: 1.12em; }
+.instructions-document-title {
+  margin: 14px 0 10px; font: bold 1.22em/1.2 Arial, sans-serif; text-align: center;
+}
+.instructions-exam { padding: 9px 0; border-top: 1px solid #aaa; }
+.instructions-exam h4 { font-size: 1.06em; font-weight: 700; }
+.instructions-exam h4 { text-transform: uppercase; }
+.instructions-exam h5 { margin-top: 6px; font-size: 1em; font-weight: 700; }
+.instructions-exam p { white-space: pre-wrap; }
+.instructions-page-footer {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr) minmax(0, 1.25fr) calc(var(--qr-width) + 2 * var(--footer-inset));
+  margin-top: auto;
+  padding-top: 1mm;
+  border-top: .25mm solid #0f4c81;
+  background: #fff;
+  color: #253349;
+  font: var(--footer-type)/1.25 Arial, sans-serif;
+  break-inside: avoid;
+}
+.instructions-page-footer > * {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  justify-content: center;
+  gap: .6mm;
+  padding-inline: var(--footer-inset);
+}
+.instructions-page-footer > :first-child { padding-inline-start: 0; }
+.instructions-page-footer > * + * { border-inline-start: .2mm solid #c9d5e0; }
+.instructions-footer-hours strong { color: #0f4c81; }
+.instructions-footer-hours span { font-variant-numeric: tabular-nums; }
+.instructions-credit, .instructions-footer-qr { align-items: center; text-align: center; }
+.instructions-page-footer > .instructions-credit {
+  flex-direction: row;
+  gap: 1mm;
+  font-size: .9em;
+}
+.instructions-credit span { white-space: nowrap; }
+.instructions-credit img { width: min(var(--credit-width), 43%); height: auto; }
+.instructions-footer-qr img { width: var(--qr-width); height: auto; background: #fff; }
+
+@page instructionsA4 { size: A4 portrait; margin: 15mm; }
+@page instructionsA5 { size: A5 portrait; margin: 10mm; }
+
+@media print {
+  html:has(.instructions-print-root), body:has(> .instructions-print-root) {
+    height: auto; min-height: 0; margin: 0; background: white;
+  }
+  body:has(> .instructions-print-root) > :not(.instructions-print-root) { display: none !important; }
+  .instructions-print-root { display: block; }
+  .instructions-print-root .instructions-sheet {
+    page: instructionsA4;
+    width: auto; min-height: calc(var(--sheet-height) - 2 * var(--sheet-margin) - 1px);
+    margin: 0; padding: 0;
+  }
+  .instructions-print-root .instructions-sheet[data-paper="A5"] { page: instructionsA5; }
+  .instructions-print-root .instructions-sheet + .instructions-sheet { break-before: page; }
+  .instructions-letterhead, .instructions-exam header, .instructions-page-footer { break-inside: avoid; }
+  .instructions-document-title, .instructions-exam header, .instructions-exam h5 { break-after: avoid; }
+  .instructions-sheet p { orphans: 2; widows: 2; }
+  .instructions-sheet img { filter: grayscale(1); }
+}

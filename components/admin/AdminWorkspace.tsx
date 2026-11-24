@@ -7,6 +7,7 @@ import StatsBar from "@/components/admin/StatsBar";
 import PruebasList from "@/components/admin/PruebasList";
 import HorariosForm from "@/components/admin/HorariosForm";
 import HistorialList from "@/components/admin/HistorialList";
+import PrintInstructions from "@/components/admin/PrintInstructions";
 import Toast from "@/components/admin/Toast";
 import { useAdminPruebas } from "@/hooks/useAdminPruebas";
 import type { ToastMessage, Usuario } from "@/types/admin";
@@ -33,6 +34,7 @@ export default function AdminWorkspace({ usuario, token, onLogout }: { usuario: 
         </>}
         {tab === "horarios" && <HorariosForm token={token} />}
         {tab === "historial" && <HistorialList token={token} />}
+        {tab === "impresion" && <PrintInstructions pruebas={data.pruebas} loading={data.loading} error={data.error} onRetry={() => void data.load()} />}
       </main>
       <footer className="admin-footer">Centro de Salud Acapulco <span>·</span> Administración</footer>
       {toast && <Toast message={toast} onDismiss={dismiss} />}
